@@ -10,7 +10,7 @@ const SideBar = ({ isOpen, toggle }) => {
   //  Ambil lokasi URL dengan memanggil global function getRoutePath
   const currentRoute = getRoutePath(useLocation(), "0");
 
-  // Menu untuk di render
+  // Mock Data untuk Menu untuk di render
   const menus = [
     { id: 0, page: "Beranda", target: "/home", icon:faHome },
     { id: 1, page: "Personel List", target: "/", icon: faPerson },

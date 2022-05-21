@@ -9,7 +9,7 @@ const initialState = {
 
 const personelReducer = (state = initialState, action) => {
   switch (action.type) {
-    //   Simpan Hasil Request dari action kedalam state
+    //   Simpan Hasil Request dari action kedalam state berdasarkan action type
     case GET_PERSONEL:
       return {
         ...state,
@@ -18,6 +18,7 @@ const personelReducer = (state = initialState, action) => {
         getPersonelError: action.payload.errorMessage,
       };
     default:
+      // Kembali ke state Awal jika dalam keadaan default
       return state;
   }
 };

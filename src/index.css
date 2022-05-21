@@ -17,12 +17,12 @@ code {
 /* Color Pallete */
 :root {
   --primary: #41c0b1;
-  --white : #ffffff;
+  --white: #ffffff;
 }
 
 /* Custom-Text */
 .text-custom-primary {
-  color : var(--primary);
+  color: var(--primary);
 }
 
 /* Pembungkus Aplikasi */
@@ -32,7 +32,6 @@ code {
   align-items: stretch;
   overflow-x: hidden;
 }
-
 
 /* Content Style */
 .content {
@@ -113,3 +112,9 @@ a.nav-link {
   }
 }
 
+/* Pagination */
+.pagination-button {
+  border: none;
+  background: transparent;
+  outline: none;
+}

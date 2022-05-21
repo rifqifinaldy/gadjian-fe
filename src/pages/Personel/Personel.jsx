@@ -1,14 +1,12 @@
 import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Button,
   Card,
   CardBody,
-  CardImg,
   CardSubtitle,
-  CardText,
   CardTitle,
   Col,
   Container,
@@ -18,6 +16,7 @@ import {
   Row,
 } from "reactstrap";
 import { getPersonel } from "../../actions/personelAction";
+import { Pagination } from "../../components/Pagination/Pagination";
 
 const Personel = () => {
   // Ambil State dari Reducers
@@ -29,7 +28,8 @@ const Personel = () => {
     // Get Personel List
     dispatch(getPersonel());
   }, [dispatch]);
-  console.log(getPersonelResult);
+
+
   return (
     <Container fluid>
       {/* Personel Header */}
@@ -72,29 +72,18 @@ const Personel = () => {
       <Card>
         <CardBody>
           <Row>
-            {getPersonelResult ? (getPersonelResult.results.map((personel, i) => {
-              return (
-                <Col md={3} key={i}>
-                  <Card>
-                    <CardTitle>
-                      <span className="text-secondary fw-bold">Personel Id : </span> {personel.id.value && personel.id.name + "-" + personel.id.value}
-                    </CardTitle>
-                    <CardImg
-                      alt="Card image cap"
-                      src={personel.picture.large}
-                      top
-                      width="100%"
-                    />
-                    <CardBody>
-                      <CardText className="mt-0 mb-0"> <span className="text-secondary fw-bold"> Name : </span> {personel.name.first+ " " + personel.name.last}</CardText>
-                      <CardText className="mt-0 mb-0"> <span className="text-secondary fw-bold"> Telephone : </span> {personel.phone}</CardText>
-                      <CardText className="mt-0 mb-0"> <span className="text-secondary fw-bold"> Birthdate : </span> {new Date(personel.dob.date).toDateString()}</CardText>
-                      <CardText className="mt-0 mb-0"> <span className="text-secondary fw-bold"> Email : </span> {personel.email}</CardText>
-                    </CardBody>
-                  </Card>
-                </Col>
-              );
-            })) : null}
+            {getPersonelResult ? (
+              <Pagination
+                data={getPersonelResult.results}
+                current={1}
+                itemCount={4}
+                components={<p>components</p>}
+              />
+            ) : getPersonelLoading ? (
+              <h1 className="text-center">Loading...</h1>
+            ) : (
+              <h1>{getPersonelError ? getPersonelError : "No Data Found"}</h1>
+            )}
           </Row>
         </CardBody>
       </Card>

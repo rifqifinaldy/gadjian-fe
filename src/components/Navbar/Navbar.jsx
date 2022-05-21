@@ -17,7 +17,6 @@ const Navbar = ({ toggleSidebar }) => {
         Halo, <span className="text-custom-primary fw-bold me-2">Gadjian User</span>
         <Avatar image="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" name="username"/>
       </div>
-      
     </TopNav>
   );
 };

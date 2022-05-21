@@ -24,7 +24,6 @@ export const getPersonel = () => {
     })
       .then((response) => {
         // Ketika Berhasil
-        console.log("res", response);
         dispatch({
           type: GET_PERSONEL,
           payload: {
