@@ -30,7 +30,6 @@ code {
   display: flex;
   width: 100%;
   align-items: stretch;
-  overflow-y: hidden;
   overflow-x: hidden;
 }
 

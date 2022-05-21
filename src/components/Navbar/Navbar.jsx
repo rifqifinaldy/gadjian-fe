@@ -9,7 +9,7 @@ const Navbar = ({ toggleSidebar }) => {
     <TopNav
       color="light"
       light
-      className="navbar shadow-sm p-3 mb-5 bg-white rounded"
+      className="navbar shadow-sm p-3 mb-2 bg-white rounded"
       expand="md"
     >
       <FontAwesomeIcon role="button" className="text-custom-primary" icon={faBars} onClick={toggleSidebar} />

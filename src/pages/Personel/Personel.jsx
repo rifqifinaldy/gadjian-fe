@@ -1,11 +1,14 @@
 import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Button,
   Card,
   CardBody,
+  CardImg,
   CardSubtitle,
+  CardText,
   CardTitle,
   Col,
   Container,
@@ -14,11 +17,21 @@ import {
   InputGroupText,
   Row,
 } from "reactstrap";
+import { getPersonel } from "../../actions/personelAction";
 
 const Personel = () => {
+  // Ambil State dari Reducers
+  const { getPersonelResult, getPersonelLoading, getPersonelError } =
+    useSelector((state) => state.personelReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Get Personel List
+    dispatch(getPersonel());
+  }, [dispatch]);
+  console.log(getPersonelResult);
   return (
     <Container fluid>
-      
       {/* Personel Header */}
       <Card outline={false} className="mb-2">
         <CardBody>
@@ -41,7 +54,11 @@ const Personel = () => {
             </Col>
             <Col md={2}>
               <Button
-                style={{ backgroundColor: "#41c0b1", color: "#fff", border: "none" }}
+                style={{
+                  backgroundColor: "#41c0b1",
+                  color: "#fff",
+                  border: "none",
+                }}
                 color="info"
               >
                 <FontAwesomeIcon icon={faPlus} /> Add Personel
@@ -54,7 +71,31 @@ const Personel = () => {
       {/* Personel Content */}
       <Card>
         <CardBody>
-
+          <Row>
+            {getPersonelResult ? (getPersonelResult.results.map((personel, i) => {
+              return (
+                <Col md={3} key={i}>
+                  <Card>
+                    <CardTitle>
+                      <span className="text-secondary fw-bold">Personel Id : </span> {personel.id.value && personel.id.name + "-" + personel.id.value}
+                    </CardTitle>
+                    <CardImg
+                      alt="Card image cap"
+                      src={personel.picture.large}
+                      top
+                      width="100%"
+                    />
+                    <CardBody>
+                      <CardText className="mt-0 mb-0"> <span className="text-secondary fw-bold"> Name : </span> {personel.name.first+ " " + personel.name.last}</CardText>
+                      <CardText className="mt-0 mb-0"> <span className="text-secondary fw-bold"> Telephone : </span> {personel.phone}</CardText>
+                      <CardText className="mt-0 mb-0"> <span className="text-secondary fw-bold"> Birthdate : </span> {new Date(personel.dob.date).toDateString()}</CardText>
+                      <CardText className="mt-0 mb-0"> <span className="text-secondary fw-bold"> Email : </span> {personel.email}</CardText>
+                    </CardBody>
+                  </Card>
+                </Col>
+              );
+            })) : null}
+          </Row>
         </CardBody>
       </Card>
     </Container>
