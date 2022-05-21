@@ -1,5 +1,5 @@
 import SideBar from "./components/Sidebar/Sidebar";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import { useState } from "react";
 import AppRoute from "./AppRoute";
 
