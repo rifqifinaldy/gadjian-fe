@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/gadjian-fe/static/css/main.87f4bbc1.css",
-    "main.js": "/gadjian-fe/static/js/main.ba69526a.js",
+    "main.js": "/gadjian-fe/static/js/main.c6fe5c92.js",
     "static/js/787.a5c40bbc.chunk.js": "/gadjian-fe/static/js/787.a5c40bbc.chunk.js",
     "index.html": "/gadjian-fe/index.html",
     "main.87f4bbc1.css.map": "/gadjian-fe/static/css/main.87f4bbc1.css.map",
-    "main.ba69526a.js.map": "/gadjian-fe/static/js/main.ba69526a.js.map",
+    "main.c6fe5c92.js.map": "/gadjian-fe/static/js/main.c6fe5c92.js.map",
     "787.a5c40bbc.chunk.js.map": "/gadjian-fe/static/js/787.a5c40bbc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.87f4bbc1.css",
-    "static/js/main.ba69526a.js"
+    "static/js/main.c6fe5c92.js"
   ]
 }
